@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { element } from 'protractor';
-import { read } from 'fs';
 
 @Component({
   selector: 'app-root',
