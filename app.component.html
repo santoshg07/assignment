@@ -2,9 +2,9 @@
 
     <div class="form-group">
         <label for="">Search</label>
-        <input type="text" class="form-control" (keyup)="b($event.target.value)">
+        <input type="text" class="form-control" (keyup)="search($event.target.value)">
 </div>
-<div *ngFor="let a of arr1">
+<div *ngFor="let a of filteredArray">
 <p>{{a | json}}</p>
 </div>
 </div>
