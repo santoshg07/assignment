@@ -15,10 +15,11 @@ export class AppComponent {
   }
   
 //fetching JSON data
-  fetchData()
+  fetchData(){
   this.http.get('../assets/sample.json').subscribe((res)=>{
-      this.a(res);
+      this.filter(res);
     });
+  }
   
   
 //   filtering the arr based on search input
