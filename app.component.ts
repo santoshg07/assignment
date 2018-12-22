@@ -8,34 +8,40 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent {
   title = 'app';
-  arr=[];
-  arr1=[];
+  filteredArray=[];
   friends;
   constructor(private http:HttpClient){
-    this.http.get('../assets/sample.json').subscribe((res)=>{
+    this.fetchData();
+  }
+  
+//fetching JSON data
+  fetchData()
+  this.http.get('../assets/sample.json').subscribe((res)=>{
       this.a(res);
     });
-  }
-  b(a){
-    if(a){
+  
+  
+//   filtering the arr based on search input
+  search(input){
+    if(input){
       var arr1=[];
-      this.arr1=[];
+      this.filteredArray=[];
       var sample = Object.keys(this.friends);
        arr1 = sample.filter((q)=>{
-      if(q.toLowerCase().indexOf(a.toLowerCase()) >= 0){
+      if(q.toLowerCase().indexOf(input.toLowerCase()) >= 0){
         return q;
       }
       });
-      this.arr1 = arr1.map((m)=>{
+      this.filteredArray = arr1.map((m)=>{
         return this.friends[m];
       })
     }else{
-      this.arr1=[];
+      this.filteredArray=[];
     }
   }
-  a(arr){
-
-this.arr = arr;
+  
+//   filtering the data for eyeColor,favoriteFruit and friends
+  filter(arr){
     var color ={};
     arr.forEach(element => {
       if(!color[element['eyeColor']]){
