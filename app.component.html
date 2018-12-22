@@ -1,0 +1,10 @@
+<div class="container">
+
+    <div class="form-group">
+        <label for="">Search</label>
+        <input type="text" class="form-control" (keyup)="b($event.target.value)">
+</div>
+<div *ngFor="let a of arr1">
+<p>{{a | json}}</p>
+</div>
+</div>
